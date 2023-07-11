@@ -1,0 +1,9 @@
+#mon-image {
+  height: 200px;
+  background-image: url("src/assets/images/404.png");
+}
+
+/* Angular nous permet 
+  d'accéder au dossier 
+  assets avec ce raccourci 
+  (en partant du dossiersrc) */
