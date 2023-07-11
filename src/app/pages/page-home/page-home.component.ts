@@ -8,6 +8,8 @@ import { PlantService } from 'src/app/services/plant.service';
   styleUrls: ['./page-home.component.css'],
 })
 export class PageHomeComponent implements OnInit {
+  // Plantes à afficher dans la page
+  plantsToDisplay!: Plant[];
   /**
    * Injection de dépendance :
    * Permet à Angular de nous mettre à dispo
@@ -48,6 +50,8 @@ export class PageHomeComponent implements OnInit {
      */
     notreFluxDeDonnees.subscribe((data: Plant[]) => {
       console.log(data);
+
+      this.plantsToDisplay = data;
     });
   }
 }
