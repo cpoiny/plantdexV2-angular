@@ -1,8 +1,7 @@
 <div class="container">
   <h1 class="title">Plantdex</h1>
-  <div class="container-plants">
-    <ul>
-      <li *ngFor="let plant of plantsToDisplay">{{ plant.nom }}</li>
-    </ul>
+  <div id="flexIt">
+    <app-side-bar></app-side-bar>
+    <app-plant-list [plantsRecupDeLaHome]="plantsToDisplay"></app-plant-list>
   </div>
 </div>
