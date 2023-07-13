@@ -1,1 +1,11 @@
-<p>side-bar works!</p>
+<div class="form-check" *ngFor="let categorie of categoriesRecupDeLaHome">
+  <input
+    class="form-check-input"
+    type="checkbox"
+    value="{{ categorie }}"
+    id="{{ categorie }}"
+  />
+  <label class="form-check-label" for="{{ categorie }}">
+    {{ categorie }}
+  </label>
+</div>
