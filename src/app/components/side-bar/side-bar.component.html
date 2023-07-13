@@ -4,6 +4,7 @@
     type="checkbox"
     value="{{ categorie }}"
     id="{{ categorie }}"
+    (change)="onCheckCategory($event)"
   />
   <label class="form-check-label" for="{{ categorie }}">
     {{ categorie }}
