@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-side-bar',
@@ -7,14 +7,29 @@ import { Component, Input } from '@angular/core';
 })
 export class SideBarComponent {
   @Input() categoriesRecupDeLaHome!: string[];
+  checkedCategorie: string[] = [];
 
   onCheckCategory(e: Event) {
-    console.log(e);
-    // Récupérer la catégorie coché
-    // Savoir si la checkbox est cochée ou non
-
     const target = e.target as HTMLInputElement;
-    console.log('Valeur de la checkbox', target.value);
-    console.log('Est elle cochée ? : ', target.checked);
+
+    if (target.checked) {
+      if (
+        this.checkedCategorie.length === this.categoriesRecupDeLaHome.length
+      ) {
+        this.checkedCategorie = [];
+      }
+      this.checkedCategorie.push(target.value);
+    } else {
+      this.checkedCategorie = this.checkedCategorie.filter(
+        (categ) => categ !== target.value
+      );
+    }
+
+    if (this.checkedCategorie.length === 0) {
+      this.checkedCategorie = [...this.categoriesRecupDeLaHome];
+    }
+
+    console.log('this.checkedCategories', this.checkedCategorie);
+    // le .emit() de notre Output devra se faire à la fin de cette méthode
   }
 }
