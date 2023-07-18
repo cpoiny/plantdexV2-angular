@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-side-bar',
@@ -8,6 +8,7 @@ import { Component, Input, Output } from '@angular/core';
 export class SideBarComponent {
   @Input() categoriesRecupDeLaHome!: string[];
   checkedCategorie: string[] = [];
+  @Output() categoryEnvoiParent = new EventEmitter<string[]>();
 
   onCheckCategory(e: Event) {
     const target = e.target as HTMLInputElement;
@@ -31,5 +32,6 @@ export class SideBarComponent {
 
     console.log('this.checkedCategories', this.checkedCategorie);
     // le .emit() de notre Output devra se faire à la fin de cette méthode
+    this.categoryEnvoiParent.emit(this.checkedCategorie);
   }
 }

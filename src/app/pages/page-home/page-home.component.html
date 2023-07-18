@@ -1,4 +1,7 @@
 <div id="flexIt">
-  <app-side-bar [categoriesRecupDeLaHome]="categories"></app-side-bar>
+  <app-side-bar
+    [categoriesRecupDeLaHome]="categories"
+    (categoryEnvoiParent)="aLecouteDeLenfant($event)"
+  ></app-side-bar>
   <app-plant-list [plantsRecupDeLaHome]="plantsToDisplay"></app-plant-list>
 </div>

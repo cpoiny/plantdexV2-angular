@@ -27,4 +27,8 @@ export class PageHomeComponent implements OnInit {
       console.log('this.categories : ', this.categories);
     });
   }
+
+  aLecouteDeLenfant(categoryDeLenfant: string[]) {
+    console.log('categoryDeLenfant', categoryDeLenfant);
+  }
 }
