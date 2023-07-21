@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { PlantListComponent } from './components/plant-list/plant-list.component';
 import { CardComponent } from './components/card/card.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
     PlantListComponent,
     CardComponent,
     SideBarComponent,
+    SearchBarComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
