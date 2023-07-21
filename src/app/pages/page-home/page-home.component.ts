@@ -12,6 +12,9 @@ export class PageHomeComponent implements OnInit {
   allPlants!: Plant[];
   plantsToDisplay!: Plant[];
   categories!: string[];
+  //Les variables "tampon" pour appliquer tous les filtres en même temps
+  categoriesChecked!: string[];
+  userInput!: string;
 
   constructor(private instancePlantService: PlantService) {}
 
@@ -34,8 +37,32 @@ export class PageHomeComponent implements OnInit {
     console.log('categoryDeLenfant', categoryDeLenfant);
     // on garde les plantes dont la
     // categorie est inclu dans le tableau categoryDeLenfant
-    this.plantsToDisplay = this.allPlants.filter((plant) =>
-      categoryDeLenfant.includes(plant.categorie)
-    );
+    // this.plantsToDisplay = this.allPlants.filter((plant) =>
+    //   categoryDeLenfant.includes(plant.categorie)
+    // );
+    this.categoriesChecked = categoryDeLenfant;
+    this.onUserInteractionFiltre();
+  }
+
+  onEnterSearch(resultUserSearch: string) {
+    this.userInput = resultUserSearch;
+    // this.plantsToDisplay = this.allPlants.filter((plant) =>
+    //   plant.nom.toLowerCase().includes(this.userInput.toLowerCase())
+    // );
+    this.onUserInteractionFiltre();
+  }
+
+  onUserInteractionFiltre() {
+    this.plantsToDisplay = [...this.allPlants];
+    if (this.userInput) {
+      this.plantsToDisplay = this.plantsToDisplay.filter((plant) =>
+        plant.nom.toLowerCase().includes(this.userInput.toLowerCase())
+      );
+    }
+    if (this.categoriesChecked) {
+      this.plantsToDisplay = this.plantsToDisplay.filter((plant) =>
+        this.categoriesChecked.includes(plant.categorie)
+      );
+    }
   }
 }
