@@ -19,4 +19,8 @@ export class PlantService {
   getPlants(): Observable<Plant[]> {
     return this.http.get<Plant[]>('http://localhost:3000/plants');
   }
+
+  getPlantsV2(): Observable<Plant[]> {
+    return this.http.get<Plant[]>('http://localhost:8084/plants');
+  }
 }
