@@ -21,6 +21,7 @@ export class PlantService {
   }
 
   getPlantsV2(): Observable<Plant[]> {
+    console.log('test')
     return this.http.get<Plant[]>('http://localhost:8084/plants');
   }
 }
