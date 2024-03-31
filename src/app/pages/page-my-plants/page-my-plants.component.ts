@@ -9,16 +9,7 @@ import { PlantService } from 'src/app/services/plant.service';
 })
 export class PageMyPlantsComponent {
 
-  plantBack : Plant[] = [];
-
-  constructor(
-    private plantService: PlantService
-  ){}
-
-  ngOnInit() {
-    this.plantService.getPlantsV2().subscribe((data: Plant[]) => {
-      console.log(data);
-  });
-}
+ 
+  
 
 }
