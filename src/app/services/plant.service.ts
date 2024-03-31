@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Plant } from '../models/plant';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -16,11 +16,15 @@ export class PlantService {
    * à partir de l'URL "http://localhost:3000/plants"
    *
    */
-  getPlants(): Observable<Plant[]> {
-    return this.http.get<Plant[]>('http://localhost:3000/plants');
-  }
+  // getPlants(): Observable<Plant[]> {
+  //   return this.http.get<Plant[]>('http://localhost:3000/plants');
+  // }
 
-  getPlantsV2(): Observable<Plant[]> {
-    return this.http.get<Plant[]>('http://localhost:8084/plants');
+  getPlants(): Observable<Plant[]> {
+    return this.http.get<{data: Plant[]}>('http://localhost:8084/plants')
+    .pipe(
+      map(response => response.data)
+    );;
   }
-}
+};
+
