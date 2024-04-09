@@ -13,6 +13,7 @@ import { PlantListComponent } from './components/plant-list/plant-list.component
 import { CardComponent } from './components/card/card.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     SideBarComponent,
     SearchBarComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

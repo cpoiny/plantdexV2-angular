@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-page-admin',
@@ -7,4 +9,22 @@ import { Component } from '@angular/core';
 })
 export class PageAdminComponent {
 
+
+  constructor(
+    private userService : UserService
+  ){}
+
+ 
+  form: FormGroup = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl('')
+  });
+
+  onSubmit() {
+    const formData = this.form.value;
+    const email = formData.email;
+    const password = formData.password;
+   console.log("form", formData.email);
+    this.userService.login(email, password);
+  }
 }
