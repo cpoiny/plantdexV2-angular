@@ -14,9 +14,7 @@ export class SideBarComponent {
     const target = e.target as HTMLInputElement;
 
     if (target.checked) {
-      if (
-        this.checkedCategorie.length === this.categoriesRecupDeLaHome.length
-      ) {
+      if (this.checkedCategorie.length === this.categoriesRecupDeLaHome.length) {
         this.checkedCategorie = [];
       }
       this.checkedCategorie.push(target.value);

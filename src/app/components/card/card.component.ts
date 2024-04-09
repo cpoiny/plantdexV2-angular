@@ -8,4 +8,5 @@ import { Plant } from 'src/app/models/plant';
 })
 export class CardComponent {
   @Input() unePlanteAAfficher!: Plant;
+
 }

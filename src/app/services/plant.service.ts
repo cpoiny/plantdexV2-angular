@@ -9,6 +9,8 @@ import { Observable, map } from 'rxjs';
 export class PlantService {
   constructor(private http: HttpClient) {}
 
+  private baseUrlApi : string = 'http://localhost:8084/plants';
+
   /**
    * La méthode getPlants retourne
    * une requête http de type GET (on veut récupérer de données)
@@ -21,10 +23,18 @@ export class PlantService {
   // }
 
   getPlants(): Observable<Plant[]> {
-    return this.http.get<{data: Plant[]}>('http://localhost:8084/plants')
+    return this.http.get<{data: Plant[]}>(this.baseUrlApi)
     .pipe(
       map(response => response.data)
-    );;
+    );
+  }
+
+// 
+  getPlantById(id: number): Observable<Plant[]> {
+    return this.http.get<{data: Plant[]}>(this.baseUrlApi + "/" + id)
+    .pipe(
+      map(response => response.data)
+    );
   }
 };
 
