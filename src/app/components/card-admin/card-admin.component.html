@@ -1,4 +1,4 @@
-<div class="card" style="width: 18rem">
+<div class="card" style="width: 15rem">
     <img
       class="card-img-top"
       src="{{ unePlanteAAfficher.image }}"
@@ -10,7 +10,7 @@
         {{ unePlanteAAfficher.categorie }}
       </p>
       <button>Modifier</button>
-      <button>Supprimer</button>
+      <button (click)="delete(unePlanteAAfficher.id)">Supprimer</button>
     </div>
   </div>
   

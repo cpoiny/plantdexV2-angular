@@ -6,3 +6,9 @@ export interface User {
   role: number;
   token: string;
 }
+
+
+export interface UserLogin {
+  user : User,
+  message: string;
+}

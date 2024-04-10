@@ -30,8 +30,16 @@ export class PlantService {
   }
 
 // 
-  getPlantById(id: number): Observable<Plant[]> {
-    return this.http.get<{data: Plant[]}>(this.baseUrlApi + "/" + id)
+  getPlantById(id: number): Observable<Plant> {
+    return this.http.get<{data: Plant}>(this.baseUrlApi + "/" + id)
+    .pipe(
+      map(response => response.data)
+    );
+  }
+
+
+  delete(id: number): Observable<Plant> {
+    return this.http.delete<{data: Plant}>(this.baseUrlApi + "/" + id)
     .pipe(
       map(response => response.data)
     );

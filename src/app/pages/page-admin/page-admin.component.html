@@ -15,12 +15,12 @@
   </form>
 
 <div *ngIf="isConnected">
-  <p *ngIf="isConnected">Bonjour !</p>
+  <p class="connexion" *ngIf="isConnected" >Bonjour {{userConnected}} !</p>
 
   <div class="container-plants p-8">
 
     <app-card-admin *ngFor="let plant of allPlantsToDisplay"
-    [unePlanteAAfficher]="plant"></app-card-admin>
+    [unePlanteAAfficher]="plant" (plantToDelete)="onDelete($event)"></app-card-admin>
 
   </div>
 

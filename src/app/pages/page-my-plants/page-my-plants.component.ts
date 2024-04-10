@@ -32,9 +32,9 @@ getId() : void {
 }
 
 getPlant(id: number) {
-  this.plantService.getPlantById(id).subscribe((data) => {
-    this.plantToDisplay = data[0];
-    console.log("cyn plante", data, this.plantToDisplay.nom);
+  this.plantService.getPlantById(id).subscribe((plant) => {
+    this.plantToDisplay = plant;
+   
   });
 }
 

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Plant } from 'src/app/models/plant';
-import { User } from 'src/app/models/user';
 import { PlantService } from 'src/app/services/plant.service';
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -12,7 +11,7 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class PageAdminComponent {
   isConnected : boolean = false;
-  userConnected?: User;
+  userConnected?: string;
   allPlantsToDisplay!: Plant[];
 
   constructor(
@@ -28,21 +27,34 @@ export class PageAdminComponent {
 
 
   ngOnInit(): void {
-    this.plantService.getPlants().subscribe((data) => {
-      this.allPlantsToDisplay = [...data];
-    })
+    this.getAllPlants();
   }
 
   onSubmit() {
     const formData = this.form.value;
     const email = formData.email;
     const password = formData.password;
-   console.log("form", formData.email);
-    this.userService.login(email, password).subscribe((user)=> {
-      console.log("user récupéré", user);
-      const {token} = user;
-      this.isConnected = true;
-      console.log("mon token", token, user.token);
+    this.login(email, password);
+    
+  }
+  login(email: string, password: string){
+    this.userService.login(email, password).subscribe((data)=> {
+      const user = data.user;
+      if(user.token && user.role === 2) {
+        this.isConnected = true;
+      }
     })
+  }
+  getAllPlants() {
+    this.plantService.getPlants().subscribe((data) => {
+      this.allPlantsToDisplay = [...data];
+    })
+  }
+
+  onDelete(id: number) {
+    this.plantService.delete(id).subscribe((data) => {
+      console.log("plant supprimée", data);
+      this.getAllPlants();
+    });
   }
 }

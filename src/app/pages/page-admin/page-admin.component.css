@@ -10,3 +10,7 @@ form {
     display: flex;
     flex-wrap: wrap;
 }
+
+.connexion {
+    text-align: center;
+}

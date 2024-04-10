@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Plant } from 'src/app/models/plant';
+import { PlantService } from 'src/app/services/plant.service';
 
 @Component({
   selector: 'app-card-admin',
@@ -8,4 +9,9 @@ import { Plant } from 'src/app/models/plant';
 })
 export class CardAdminComponent {
   @Input() unePlanteAAfficher!: Plant;
+  @Output() plantToDelete :  EventEmitter<number> = new EventEmitter();
+
+ delete(id:number) {
+  this.plantToDelete.emit(id);
+}
 }
