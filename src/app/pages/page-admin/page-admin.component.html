@@ -1,6 +1,6 @@
 
 
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<form *ngIf="!isConnected" [formGroup]="form" (ngSubmit)="onSubmit()">
     <label>
       Email:
       <input type="email" formControlName="email">
@@ -13,3 +13,8 @@
     <br>
     <button type="submit">Se connecter</button>
   </form>
+
+
+  <p *ngIf="isConnected">Je suis connectée</p>
+
+

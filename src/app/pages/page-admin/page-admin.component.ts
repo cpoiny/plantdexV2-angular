@@ -8,7 +8,7 @@ import { UserService } from 'src/app/services/user/user.service';
   styleUrls: ['./page-admin.component.css']
 })
 export class PageAdminComponent {
-
+  isConnected : boolean = false;
 
   constructor(
     private userService : UserService
@@ -25,6 +25,11 @@ export class PageAdminComponent {
     const email = formData.email;
     const password = formData.password;
    console.log("form", formData.email);
-    this.userService.login(email, password);
+    this.userService.login(email, password).subscribe((data)=> {
+      console.log("connection : ", data);
+      if(data){
+        this.isConnected = true;
+      }
+    })
   }
 }
