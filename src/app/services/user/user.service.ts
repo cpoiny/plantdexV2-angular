@@ -17,7 +17,7 @@ export class UserService {
   private baseUrlApi : string = 'http://localhost:8084/users';
 
 
-login(email: string, password: string): Observable<User[]>{
+login(email: string, password: string): Observable<User>{
   const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
@@ -26,7 +26,7 @@ login(email: string, password: string): Observable<User[]>{
   };
   
   const url = this.baseUrlApi + "/login";
-  return this.http.post<User[]>(url, {email: email, password: password},httpOptions);
+  return this.http.post<User>(url, {email: email, password: password},httpOptions);
 
 }
 }

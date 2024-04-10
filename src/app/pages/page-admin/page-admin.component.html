@@ -14,7 +14,16 @@
     <button type="submit">Se connecter</button>
   </form>
 
+<div *ngIf="isConnected">
+  <p *ngIf="isConnected">Bonjour !</p>
 
-  <p *ngIf="isConnected">Je suis connectée</p>
+  <div class="container-plants p-8">
+
+    <app-card-admin *ngFor="let plant of allPlantsToDisplay"
+    [unePlanteAAfficher]="plant"></app-card-admin>
+
+  </div>
+
+</div>
 
 
