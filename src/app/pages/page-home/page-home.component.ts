@@ -22,7 +22,10 @@ export class PageHomeComponent implements OnInit {
     this.instancePlantService.getPlants().subscribe((data: Plant[]) => {
       console.log(data);
 
+      // On utilise le spread operator pour faire une copie de Data (et pas pointeur)
       this.plantsToDisplay = [...data];
+      
+    
       this.allPlants = [...data];
       // Pour supprimer les doublons d'un tableau
       // [...new Set(tableau)]

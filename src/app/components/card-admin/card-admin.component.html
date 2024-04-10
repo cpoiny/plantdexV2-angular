@@ -1,0 +1,16 @@
+<div class="card" style="width: 15rem">
+    <img
+      class="card-img-top"
+      src="{{ unePlanteAAfficher.image }}"
+      alt="Card image cap"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ unePlanteAAfficher.nom }}</h5>
+      <p class="card-text">
+        {{ unePlanteAAfficher.categorie }}
+      </p>
+      <button>Modifier</button>
+      <button (click)="delete(unePlanteAAfficher.id)">Supprimer</button>
+    </div>
+  </div>
+  

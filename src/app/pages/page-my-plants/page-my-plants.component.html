@@ -1,2 +1,6 @@
-<p>page-my-plants works!</p>
+<h1>{{ plantToDisplay.nom }}</h1>
 
+<img src="{{ plantToDisplay.image }}" alt="{{ plantToDisplay.nom }}" width="550px"> 
+<p>Arrosage : {{ plantToDisplay.arrosage }}</p>
+<p>Soleil : {{ plantToDisplay.soleil }}</p>
+<p>Categorie : {{ plantToDisplay.categorie }}</p>

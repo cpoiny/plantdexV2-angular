@@ -6,11 +6,27 @@ import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' }, // si un user arrive sur localhost:4200 on le redirige vers localhost:4200/home
-  { path: 'home', component: PageHomeComponent },
-  { path: 'my-plants', component: PageMyPlantsComponent },
-  { path: 'admin', component: PageAdminComponent },
-  { path: '**', component: PageNotFoundComponent },
+  { 
+    path: '', 
+    redirectTo: 'home', 
+    pathMatch: 'full' 
+  }, // si un user arrive sur localhost:4200 on le redirige vers localhost:4200/home
+  { 
+    path: 'home', 
+    component: PageHomeComponent 
+  },
+  { 
+    path: 'my-plants/:id', 
+    component: PageMyPlantsComponent 
+  },
+  { 
+    path: 'admin', 
+    component: PageAdminComponent 
+  },
+  { 
+    path: '**', 
+    component: PageNotFoundComponent 
+  },
 ];
 
 @NgModule({

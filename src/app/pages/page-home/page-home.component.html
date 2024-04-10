@@ -3,6 +3,7 @@
     [categoriesRecupDeLaHome]="categories"
     (categoryEnvoiParent)="aLecouteDeLenfant($event)"
   ></app-side-bar>
+
   <div>
     <app-search-bar (inputUser)="onEnterSearch($event)"></app-search-bar>
     <app-plant-list [plantsRecupDeLaHome]="plantsToDisplay"></app-plant-list>
