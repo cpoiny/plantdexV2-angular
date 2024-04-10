@@ -24,10 +24,19 @@ login(email: string, password: string): Observable<UserLogin>{
       'Authorization': 'mon-jeton'
     })
   };
-  
   const url = this.baseUrlApi + "/login";
   return this.http.post<UserLogin>(url, {email: email, password: password},httpOptions);
+}
 
+signUp(pseudo: string, email: string, password: string): Observable<UserLogin>{
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'Authorization': 'mon-jeton'
+    })
+  };
+  const url = this.baseUrlApi + "/signup";
+  return this.http.post<UserLogin>(url, {pseudo: pseudo, email: email, password: password},httpOptions);
 }
 }
 

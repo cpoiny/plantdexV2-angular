@@ -29,7 +29,7 @@ export class PlantService {
     );
   }
 
-// 
+
   getPlantById(id: number): Observable<Plant> {
     return this.http.get<{data: Plant}>(this.baseUrlApi + "/" + id)
     .pipe(

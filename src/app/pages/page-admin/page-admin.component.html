@@ -1,5 +1,7 @@
 
+<h1>Compte</h1>
 
+<h2>Se connecter</h2>
 <form *ngIf="!isConnected" [formGroup]="form" (ngSubmit)="onSubmit()">
     <label>
       Email:
@@ -13,6 +15,26 @@
     <br>
     <button type="submit">Se connecter</button>
   </form>
+
+<h2>Créer un compte</h2>
+  <form *ngIf="!isCreated" [formGroup]="formCreate" (ngSubmit)="onCreate()">
+    <label>
+      Pseudo:
+      <input type="pseudo" formControlName="pseudo">
+    </label>
+    <label>
+      Email:
+      <input type="email" formControlName="email">
+    </label>
+    <label>
+      Mot de passe:
+      <input type="password" formControlName="password">
+    </label>
+    <br>
+    <button type="submit">Créer un compte</button>
+  </form>
+
+  <div *ngIf="isCreated">User créé</div>
 
 <div *ngIf="isConnected">
   <p class="connexion" *ngIf="isConnected" >Bonjour {{userConnected}} !</p>
